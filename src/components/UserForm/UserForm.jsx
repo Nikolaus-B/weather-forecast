@@ -1,11 +1,21 @@
 import * as Yup from "yup";
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Formik } from "formik";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch } from "react-redux";
 import { addCity } from "../../redux/cities/citiesSlice";
+import {
+  ButtonContainer,
+  ClearButton,
+  FormContainer,
+  FormErrorMessage,
+  FormField,
+  FormSpan,
+  Label,
+  SaveButton,
+} from "./UserForm.styled";
 const CitiesSchema = Yup.object().shape({
   city: Yup.string()
     .min(2, "Too Short!")
@@ -40,38 +50,51 @@ export const UserForm = ({ closeModal }) => {
       }}
     >
       {() => (
-        <Form>
-          <label>
-            <span>*</span> City
-            <Field name="city" />
-          </label>
-          <ErrorMessage component={"span"} name="city" />
+        <FormContainer>
+          <Label>
+            <span>
+              <FormSpan>*</FormSpan> City
+            </span>
+            <FormField name="city" />
+          </Label>
+          <FormErrorMessage component={"span"} name="city" />
 
-          <Field name="dateStart">
-            {({ field, form }) => (
-              <DatePicker
-                id="dateStart"
-                {...field}
-                selected={field.value}
-                onChange={(val) => form.setFieldValue("dateStart", val)}
-              />
-            )}
-          </Field>
+          <Label>
+            <span>
+              <FormSpan>*</FormSpan> Start date
+            </span>
+            <FormField name="dateStart">
+              {({ field, form }) => (
+                <DatePicker
+                  id="dateStart"
+                  {...field}
+                  selected={field.value}
+                  onChange={(val) => form.setFieldValue("dateStart", val)}
+                />
+              )}
+            </FormField>
+          </Label>
 
-          <Field name="dateEnd">
-            {({ field, form }) => (
-              <DatePicker
-                id="dateEnd"
-                {...field}
-                selected={field.value}
-                onChange={(val) => form.setFieldValue("dateEnd", val)}
-              />
-            )}
-          </Field>
-
-          <button type="reset">Clear</button>
-          <button type="submit">Save</button>
-        </Form>
+          <Label>
+            <span>
+              <FormSpan>*</FormSpan> End date
+            </span>
+            <FormField name="dateEnd">
+              {({ field, form }) => (
+                <DatePicker
+                  id="dateEnd"
+                  {...field}
+                  selected={field.value}
+                  onChange={(val) => form.setFieldValue("dateEnd", val)}
+                />
+              )}
+            </FormField>
+          </Label>
+          <ButtonContainer>
+            <ClearButton type="reset">Clear</ClearButton>
+            <SaveButton type="submit">Save</SaveButton>
+          </ButtonContainer>
+        </FormContainer>
       )}
     </Formik>
   );

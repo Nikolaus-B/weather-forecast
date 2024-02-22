@@ -12,7 +12,10 @@ export const WeatherDay = ({ day }) => {
   return (
     <li>
       <p>{days[new Date(day.datetime).getDay()]}</p>
-      <p>{day.icon}</p>
+
+      <svg width="32">
+        <use href={`./assets/weather-icons/${day.icon}.svg`}></use>
+      </svg>
       <p>
         {day.tempmax}°C/{day.tempmin}°C
       </p>

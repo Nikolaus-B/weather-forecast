@@ -6,10 +6,10 @@ import { WeatherListStyled } from "./WeatherList.styled";
 
 export const WeatherList = () => {
   const weather = useSelector(selectWeather);
-
+  const limitedWeather = weather.slice(0, 7);
   return (
     <WeatherListStyled>
-      {weather.map((day) => {
+      {limitedWeather.map((day) => {
         return <WeatherDay key={uid()} day={day} />;
       })}
     </WeatherListStyled>

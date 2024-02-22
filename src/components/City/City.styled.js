@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const CityItem = styled.li`
-  width: 250px;
+  width: 190px;
   border: 2px solid #f3f4f8;
 
-  transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     border: 2px solid #93abae;
@@ -12,7 +12,7 @@ export const CityItem = styled.li`
 `;
 
 export const CityImage = styled.img`
-  width: 100%;
+  width: 186px;
   height: 180px;
 `;
 

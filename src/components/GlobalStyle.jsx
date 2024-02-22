@@ -36,5 +36,9 @@ a{
 `;
 
 export const Container = styled.main`
-  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30px;
+  gap: 40px;
 `;

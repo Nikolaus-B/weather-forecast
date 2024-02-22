@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const WeatherSection = styled.section`
-  padding: 40px 30px 20px 40px;
+  width: 900px;
 `;
 
 export const Week = styled.h2`

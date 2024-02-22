@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const CitiesContainer = styled.div`
   display: flex;
-  max-width: 750px;
+  max-width: 900px;
   margin-bottom: 40px;
-
+  flex-wrap: nowrap;
   gap: 30px;
 `;
 
@@ -21,6 +21,7 @@ export const AddCityButton = styled.button`
   align-items: center;
   width: 180px;
   height: 180px;
+  padding: 0px 30px;
   border: none;
   font-weight: 600;
   background-color: #f3f4f8;

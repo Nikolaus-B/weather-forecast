@@ -1,6 +1,12 @@
 import { useSelector } from "react-redux";
 import { selectCurrentWeather } from "../../redux/cities/citiesSelectors";
 import { Timer } from "../Timer/Timer";
+import {
+  CurrentDay,
+  CurrentLocation,
+  CurrentTemp,
+  TimerSection,
+} from "./TimerContainer.styled";
 
 export const TimerContainer = () => {
   const currentWeather = useSelector(selectCurrentWeather);
@@ -15,30 +21,31 @@ export const TimerContainer = () => {
   ];
 
   return (
-    <section>
-      <h1>timer</h1>
+    <TimerSection>
       <div>
-        <p>
+        <CurrentDay>
           {currentWeather.firstRender
             ? days[new Date(currentWeather.days[0].datetime).getDay()]
             : "none"}
-        </p>
+        </CurrentDay>
         <div>
           <p className="icon">
             {currentWeather.firstRender ? currentWeather.days[0].icon : "none"}
           </p>
-          <p>
+          <CurrentTemp>
             {currentWeather.firstRender ? currentWeather.days[0].temp : "none"}
-            °C{" "}
-          </p>
+            °C
+          </CurrentTemp>
         </div>
-        <p>{currentWeather.firstRender ? currentWeather.address : "none"}</p>
+        <CurrentLocation>
+          {currentWeather.firstRender ? currentWeather.address : "none"}
+        </CurrentLocation>
       </div>
       <Timer
         startDate={
           currentWeather.firstRender ? currentWeather.days[0].datetime : "none"
         }
       />
-    </section>
+    </TimerSection>
   );
 };

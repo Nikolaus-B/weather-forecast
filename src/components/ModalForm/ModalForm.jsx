@@ -1,6 +1,7 @@
 import Modal from "react-modal";
 import { IoMdClose } from "react-icons/io";
 import { UserForm } from "../UserForm/UserForm";
+import { CloseBtn, ModalHeader, ModalText } from "./ModalForm.styled";
 
 const customStyles = {
   overlay: {
@@ -20,9 +21,8 @@ const customStyles = {
     position: "absolute",
     top: "50%",
     left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
+    width: "550px",
+    height: "500px",
     transform: "translate(-50%, -50%)",
     padding: "0px",
     border: "none",
@@ -40,12 +40,12 @@ export const ModalForm = ({ modalIsOpen, closeModal }) => {
       style={customStyles}
       contentLabel="Example Modal"
     >
-      <div>
-        <p>Create trip</p>
-        <button onClick={closeModal}>
+      <ModalHeader>
+        <ModalText>Create trip</ModalText>
+        <CloseBtn onClick={closeModal}>
           <IoMdClose />
-        </button>
-      </div>
+        </CloseBtn>
+      </ModalHeader>
       <div>
         <UserForm closeModal={closeModal} />
       </div>
