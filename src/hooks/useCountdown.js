@@ -2,18 +2,26 @@ import { useEffect, useState } from "react";
 
 const useCountdown = (targetDate) => {
   const countDownDate = new Date(targetDate).getTime();
-
   const [countDown, setCountDown] = useState(
     countDownDate - new Date().getTime()
   );
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCountDown(countDownDate - new Date().getTime());
+      const now = new Date().getTime();
+      const difference = countDownDate - now;
+
+      if (difference <= 0) {
+        // Таймер досягнув цільової дати, зупиняємо його
+        clearInterval(interval);
+        setCountDown(0);
+      } else {
+        setCountDown(difference);
+      }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [countDownDate]);
+  }, [countDownDate, countDown]); // Додано countDown до залежностей
 
   return getReturnValues(countDown);
 };

@@ -3,8 +3,8 @@ import { selectCities } from "../../redux/cities/citiesSelectors";
 import { City } from "../City/City";
 import { uid } from "uid";
 import { useState } from "react";
-
 import { ModalForm } from "../ModalForm/ModalForm";
+import { AddCityButton, Cities, CitiesContainer } from "./CitiesList.styled";
 
 export const CitiesList = ({ changeSelectedCity }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -19,20 +19,21 @@ export const CitiesList = ({ changeSelectedCity }) => {
   }
 
   return (
-    <div>
-      <ul>
+    <CitiesContainer>
+      <Cities>
         {cities.map((city) => {
           return (
             <City key={uid()} city={city} selectCity={changeSelectedCity} />
           );
         })}
-      </ul>
-      <button onClick={openModal}>
+      </Cities>
+
+      <AddCityButton onClick={openModal}>
         +<br />
         Add trip
-      </button>
+      </AddCityButton>
       <ModalForm modalIsOpen={modalIsOpen} closeModal={closeModal} />
-    </div>
+    </CitiesContainer>
   );
 };
 

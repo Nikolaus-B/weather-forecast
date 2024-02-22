@@ -16,8 +16,10 @@ const citiesSlice = createSlice({
     cities: [
       {
         address: "London",
-        startDate: new Date().toISOString().split("T", 1)[0],
-        endDate: new Date(new Date().setDate(new Date().getDate() + 7))
+        startDate: new Date(new Date().setDate(new Date().getDate() + 1))
+          .toISOString()
+          .split("T", 1)[0],
+        endDate: new Date(new Date().setDate(new Date().getDate() + 8))
           .toISOString()
           .split("T", 1)[0],
       },

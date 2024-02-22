@@ -1,14 +1,16 @@
 import { CitiesList } from "../CitiesList/CitiesList";
 import { Searchbar } from "../Searchbar/Searchbar";
 import { WeatherList } from "../WeatherList/WeatherList";
+import { WeatherSection, Week } from "./WeatherContainer.styled";
 
 export const WeatherContainer = ({ changeSelectedCity }) => {
   return (
-    <section>
+    <WeatherSection>
       <Searchbar />
       <CitiesList changeSelectedCity={changeSelectedCity} />
+      <Week>Week</Week>
       <WeatherList />
-    </section>
+    </WeatherSection>
   );
 };
 

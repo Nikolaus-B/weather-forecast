@@ -2,7 +2,7 @@ import { search } from "react-icons-kit/icomoon/search";
 import { Icon } from "react-icons-kit";
 import {
   IconContainer,
-  SearchConrainer,
+  SearchContainer,
   SearchHeader,
   SearchInput,
   SearchSpan,
@@ -10,7 +10,7 @@ import {
 
 export const Searchbar = () => {
   return (
-    <SearchConrainer>
+    <SearchContainer>
       <SearchHeader>
         Weather <SearchSpan>Forecast</SearchSpan>
       </SearchHeader>
@@ -18,6 +18,6 @@ export const Searchbar = () => {
         <Icon icon={search} size={15} />
         <SearchInput type="text" placeholder="Search your trip" />
       </IconContainer>
-    </SearchConrainer>
+    </SearchContainer>
   );
 };

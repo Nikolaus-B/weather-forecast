@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-export const SearchConrainer = styled.div`
-  margin-top: 40px;
-  margin-left: 40px;
+export const SearchContainer = styled.div`
+  margin-bottom: 40px;
 `;
 
 export const SearchHeader = styled.p`
@@ -18,7 +17,7 @@ export const IconContainer = styled.div`
   display: flex;
   width: 250px;
   height: 40px;
-  background-color: #e2dfd2;
+  background-color: #f3f4f8;
   align-items: center;
   border-radius: 5px;
   padding-left: 6px;
@@ -31,5 +30,5 @@ export const SearchInput = styled.input`
   border-radius: 5px;
   margin-left: 3px;
   outline: none;
-  background-color: #e2dfd2;
+  background-color: #f3f4f8;
 `;
